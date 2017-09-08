@@ -67,12 +67,17 @@ public class PkgInfoAdapter extends RecyclerView.Adapter {
             tvAppStyle = (TextView) itemView.findViewById(R.id.tv_app_type_value);
             tvAppIntent = (TextView) itemView.findViewById(R.id.tv_app_intent_value);
             itemView.setOnClickListener(this);
+            appIcon.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            Toast.makeText(mContext, "click position is " + position, Toast.LENGTH_SHORT).show();
+            if (view == appIcon) {
+                Toast.makeText(mContext, "click app is " + list.get(position).getAppName(), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(mContext, "click position is " + position, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

@@ -8,7 +8,7 @@ import android.support.annotation.StyleRes;
 import android.util.Log;
 import android.view.MotionEvent;
 
-import com.zony.testhookclick.utils.HookViewClickUtil;
+import com.zony.testhookclick.utils.HookViewClick;
 
 public class BaseDialog extends Dialog {
     private static final String TAG = "zony";
@@ -34,7 +34,7 @@ public class BaseDialog extends Dialog {
                 break;
             case MotionEvent.ACTION_DOWN:
                 Log.i(TAG, "dispatchTouchEvent ACTION_DOWN");
-                HookViewClickUtil.hookAllViews(getWindow().getDecorView());
+                HookViewClick.getHookInstance().hookAllViews(getWindow().getDecorView());
                 break;
             case MotionEvent.ACTION_UP:
                 Log.i(TAG, "dispatchTouchEvent ACTION_UP");
